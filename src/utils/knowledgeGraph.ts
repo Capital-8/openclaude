@@ -469,8 +469,8 @@ function readLegacySqliteStore(dbPath: string): SqliteReadResult {
     }
   } catch {
     try {
-      // The distributed CLI runs on Node. Node 22.5+ exposes a compatible
-      // synchronous reader, so a store originally created by a Bun-based
+      // The distributed CLI runs on Node, whose supported versions expose a
+      // compatible synchronous reader, so a store originally created by a Bun-based
       // OpenClaude install can still migrate after the user changes runtimes.
       const DatabaseSync = _require('node:sqlite').DatabaseSync
       openDatabase = () => {
